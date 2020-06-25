@@ -1,0 +1,21 @@
+{
+  "extends": ["airbnb"],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "project": "./jsconfig.json"
+  },
+  "rules": {
+    "max-len": "warn",
+    "arrow-parens": "off",
+    "import/prefer-default-export": "off",
+    "object-curly-newline": "off",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/control-has-associated-label": "off",
+    "react/prop-types": "off"
+  }
+}
