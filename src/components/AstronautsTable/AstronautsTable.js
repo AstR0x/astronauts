@@ -8,35 +8,47 @@ import data from '../../data.json';
 
 const AstronautsTable = () => {
   const [astronauts, setAstronauts] = useState([]);
+  const [filteredAstronauts, setFilteredAstronauts] = useState([]);
+  const [filter, setFilter] = useState('');
 
   useEffect(() => {
     setAstronauts(data);
+    setFilteredAstronauts(data);
   }, []);
 
+  const onFilter = event => {
+    const currentFilter = event.target.value;
+
+    const filtered = currentFilter ? astronauts.filter(({ name, date, mission }) => {
+      return name.match(currentFilter)
+        || formatDate(date).match(currentFilter)
+        || mission.match(currentFilter);
+    }) : [];
+
+    setFilter(currentFilter);
+    setFilteredAstronauts(currentFilter ? filtered : astronauts);
+  };
+
   return (
-    <div>
+    <div className={styles.tableContainer}>
+      <input
+        value={filter}
+        onChange={onFilter}
+        className={styles.input}
+        placeholder="Фильтр"
+      />
       <table className={styles.table}>
         <thead className={styles.head}>
           <tr className={styles.row}>
-            <th className={styles.cell}>
-              Имя
-            </th>
-            <th className={styles.cell}>
-              Дата
-            </th>
-            <th className={styles.cell}>
-              Количество дней
-            </th>
-            <th className={styles.cell}>
-              Название миссии
-            </th>
-            <th className={styles.cell}>
-              Повторные полёты
-            </th>
+            <th className={styles.cell}>Имя</th>
+            <th className={styles.cell}>Дата</th>
+            <th className={styles.cell}>Количество дней</th>
+            <th className={styles.cell}>Название миссии</th>
+            <th className={styles.cell}>Повторные полёты</th>
           </tr>
         </thead>
         <tbody className={styles.body}>
-          {astronauts.map(astronaut => (
+          {filteredAstronauts.map(astronaut => (
             <tr className={styles.row} key={astronaut.name}>
               <td className={styles.cell}>{astronaut.name}</td>
               <td className={styles.cell}>{formatDate(astronaut.date)}</td>

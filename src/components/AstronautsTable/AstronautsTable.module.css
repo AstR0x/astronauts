@@ -1,32 +1,43 @@
+.tableContainer {
+  width: 70%;
+  margin: 50px auto;
+}
+
+.input {
+  padding-left: 10px;
+  height: 40px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
 .table {
-    margin: 0 auto;
-    width: 70%;
-    display: block;
-    box-shadow: rgba(0, 0, 0, 0.4) 0 1px 7px -1px;
+  display: block;
+  margin: 8px auto;
+  box-shadow: rgba(0, 0, 0, 0.4) 0 1px 7px -1px;
 }
 
 .head {
-    background-color: #000;
-    color: #fff;
-    font-family: sans-serif
+  display: block;
+  background-color: #000;
+  color: #fff;
+  font-family: sans-serif;
 }
 
 .row {
-  height: 40px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
 }
 
 .cell {
-    width: 20%;
-    text-align: center;
-    border-top: 1px solid #eee;
+  width: 20%;
+  text-align: center;
 }
 
 .body {
-    margin-top: 10px;
-}
-
-@media (max-width: 1024px) and (max-height: 1366px) {
-    .table {
-        width: 100%;
-    }
+  display: block;
+  margin-top: 10px;
 }
