@@ -7,7 +7,15 @@
   "parserOptions": {
     "project": "./jsconfig.json"
   },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
+  },
   "rules": {
+    "no-plusplus": "off",
     "max-len": "warn",
     "arrow-parens": "off",
     "import/prefer-default-export": "off",

@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { formatDate } from '../../utils';
-
-import { ReactComponent as DeleteIcon } from '../../assets/icons/delete.svg';
+import { formatDate } from 'utils';
+import { ReactComponent as DeleteIcon } from 'assets/icons/delete.svg';
 
 import styles from './Table.module.css';
 
@@ -19,7 +18,7 @@ const Table = ({ astronauts, onDelete }) => (
     </thead>
     <tbody className={styles.body}>
       {astronauts.map(astronaut => (
-        <tr className={styles.row} key={astronaut.name}>
+        <tr className={styles.row} key={astronaut.id}>
           <td className={styles.cell}>{astronaut.name}</td>
           <td className={styles.cell}>{formatDate(astronaut.date)}</td>
           <td className={styles.cell}>{astronaut.days}</td>
