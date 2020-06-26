@@ -1,1 +1,0 @@
-export { AstronautsTable } from './AstronautsTable';

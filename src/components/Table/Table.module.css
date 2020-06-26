@@ -1,17 +1,3 @@
-.tableContainer {
-  width: 70%;
-  margin: 50px auto;
-}
-
-.input {
-  padding-left: 10px;
-  height: 40px;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  outline: none;
-}
-
 .table {
   display: block;
   margin: 8px auto;
@@ -30,6 +16,14 @@
   display: flex;
   align-items: center;
   border-bottom: 1px solid #eee;
+  position: relative;
+}
+
+.deleteButton {
+  position: absolute;
+  right: 10px;
+  background-color: #fff;
+  border: none;
 }
 
 .cell {
