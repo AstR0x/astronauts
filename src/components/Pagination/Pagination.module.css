@@ -1,0 +1,36 @@
+.list {
+    display: flex;
+    list-style: none;
+}
+
+.listButton {
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    color: #007bff;
+    border: 1px solid #eee;
+    border-radius: 2px;
+    outline: none;
+}
+
+.listButton:hover {
+    background-color: #f0f0f0;
+}
+
+.listButton:active {
+    background-color: #f0f0f0;
+}
+
+.isActive {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.isActive:hover {
+    background-color: #007bff;
+}
+
+
+
+
+
