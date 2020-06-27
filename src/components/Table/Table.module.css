@@ -6,7 +6,7 @@
 
 .head {
   display: block;
-  background-color: #000;
+  background-color: #007bff;
   color: #fff;
   font-family: sans-serif;
 }
@@ -20,10 +20,18 @@
 }
 
 .deleteButton {
+  width: 35px;
+  height: 35px;
+  padding-top: 4px;
   position: absolute;
   right: 10px;
   background-color: #fff;
-  border: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.deleteButton:hover {
+  background-color: #f0f0f0;
 }
 
 .cell {
@@ -33,5 +41,4 @@
 
 .body {
   display: block;
-  margin-top: 10px;
 }
