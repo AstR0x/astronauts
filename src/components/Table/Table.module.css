@@ -1,44 +1,56 @@
 .table {
-  display: block;
-  margin: 8px auto;
-  box-shadow: rgba(0, 0, 0, 0.4) 0 1px 7px -1px;
+    display: block;
+    margin: 8px auto;
+    box-shadow: rgba(0, 0, 0, 0.4) 0 1px 7px -1px;
 }
 
 .head {
-  display: block;
-  background-color: #007bff;
-  color: #fff;
-  font-family: sans-serif;
+    height: 50px;
+    display: block;
+    background-color: #007bff;
+    color: #fff;
+    font-family: sans-serif;
+}
+
+.sortedCell {
+    cursor: pointer;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
 }
 
 .row {
-  height: 50px;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-  position: relative;
+    min-height: 50px;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    position: relative;
 }
 
 .deleteButton {
-  width: 35px;
-  height: 35px;
-  padding-top: 4px;
-  position: absolute;
-  right: 10px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+    width: 35px;
+    height: 35px;
+    padding-top: 4px;
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .deleteButton:hover {
-  background-color: #f0f0f0;
+    background-color: #f0f0f0;
 }
 
 .cell {
-  width: 20%;
-  text-align: center;
+    width: 20%;
+    text-align: center;
 }
 
 .body {
-  display: block;
+    display: block;
 }
