@@ -6,10 +6,10 @@ import styles from './Form.module.css';
 
 export const Form = ({ onAdd }) => {
   const [name, setName] = useState('');
-  const [date, setDate] = useState('Дата полёта');
+  const [date, setDate] = useState('');
   const [days, setDays] = useState('');
   const [mission, setMission] = useState('');
-  const [isMultiple, setIsMultiple] = useState();
+  const [isMultiple, setIsMultiple] = useState(false);
 
   const onChangeName = event => {
     setName(event.target.value);
@@ -31,13 +31,13 @@ export const Form = ({ onAdd }) => {
     setIsMultiple(!isMultiple);
   };
 
-  const isValid = () => Boolean(name.trim() && date.trim() && days.trim() && mission.trim());
+  const isValid = Boolean(name.trim() && date.trim() && days && mission.trim());
 
   const onAddD = () => {
     const id = Date.now();
     const timestamps = new Date(date).getTime() / MILLISECONDS_IN_SECOND;
 
-    onAdd({ id, name, date: timestamps, days, mission, isMultiple });
+    onAdd({ id, name, date: timestamps, days: +days, mission, isMultiple });
 
     setName('');
     setDate('');
@@ -46,41 +46,31 @@ export const Form = ({ onAdd }) => {
     setIsMultiple(false);
   };
 
+  const inputs = [
+    { value: name, type: 'text', handler: onChangeName, placeholder: 'Имя' },
+    { value: date, type: 'date', handler: onChangeDate, placeholder: 'Дата' },
+    { value: days, type: 'number', handler: onChangeDays, placeholder: 'Количество дней' },
+    { value: mission, type: 'text', handler: onChangeMission, placeholder: 'Название миссии' }];
+
   return (
-    <form className={styles.form}>
-      <input
-        type="text"
-        value={name}
-        onChange={onChangeName}
-        className={styles.input}
-        placeholder="Имя"
-      />
-      <input
-        type="date"
-        value={date}
-        onChange={onChangeDate}
-        className={styles.input}
-        placeholder="Дата"
-      />
-      <input
-        type="number"
-        value={days}
-        onChange={onChangeDays}
-        className={styles.input}
-        placeholder="Количество дней"
-      />
-      <input
-        type="text"
-        value={mission}
-        onChange={onChangeMission}
-        className={styles.input}
-        placeholder="Название миссии"
-      />
+    <form onSubmit={onAddD} className={styles.form}>
+      {inputs.map(({ value, type, handler, placeholder }) => (
+        <input
+          type={type}
+          value={value}
+          onChange={handler}
+          className={styles.input}
+          placeholder={placeholder}
+          required
+          key={placeholder}
+        />
+      ))}
       <div className={styles.checkboxContainer}>
         <label className={styles.checkboxLabel}>
           Повторные полёты
         </label>
         <input
+          checked={isMultiple}
           value={isMultiple}
           type="checkbox"
           onChange={onChangeIsMultiple}
@@ -88,10 +78,9 @@ export const Form = ({ onAdd }) => {
         />
       </div>
       <button
-        disabled={!isValid()}
-        onClick={onAddD}
+        disabled={!isValid}
         className={styles.button}
-        type="button"
+        type="submit"
       >
         Добавить
       </button>

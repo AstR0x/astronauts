@@ -1,19 +1,55 @@
 import React from 'react';
 
-import { formatDate } from 'utils';
 import { ReactComponent as DeleteIcon } from 'assets/icons/delete.svg';
+
+import { formatDate } from 'utils';
 
 import styles from './Table.module.css';
 
-const Table = ({ astronauts, onDelete }) => (
+const symbols = {
+  asc: '▲',
+  desc: '▼',
+};
+
+const cellClasses = `${styles.cell} ${styles.sortedCell}`;
+const fields = [
+  {
+    name: 'name',
+    ruName: 'Имя',
+  },
+  {
+    name: 'date',
+    ruName: 'Дата полёта',
+  },
+  {
+    name: 'days',
+    ruName: 'Количество полётов',
+  },
+  {
+    name: 'mission',
+    ruName: 'Название миссии',
+  },
+  {
+    name: 'isMultiple',
+    ruName: 'Повторные полёты',
+  }];
+
+const Table = ({ astronauts, onDelete, onSort, sortField, sortDirection }) => (
   <table className={styles.table}>
     <thead className={styles.head}>
       <tr className={styles.row}>
-        <th className={styles.cell}>Имя</th>
-        <th className={styles.cell}>Дата</th>
-        <th className={styles.cell}>Количество дней</th>
-        <th className={styles.cell}>Название миссии</th>
-        <th className={styles.cell}>Повторные полёты</th>
+        {fields.map(field => (
+          <th
+            onClick={onSort.bind(null, field.name)}
+            className={cellClasses}
+            key={field.name}
+          >
+            {field.ruName} {sortField === field.name && (
+            <span>{symbols[sortDirection]}</span>
+            )}
+          </th>
+        ))}
+        <th></th>
       </tr>
     </thead>
     <tbody className={styles.body}>
@@ -24,13 +60,15 @@ const Table = ({ astronauts, onDelete }) => (
           <td className={styles.cell}>{astronaut.days}</td>
           <td className={styles.cell}>{astronaut.mission}</td>
           <td className={styles.cell}>{astronaut.isMultiple ? 'Да' : 'Нет'}</td>
-          <button
-            onClick={onDelete.bind(null, astronaut.id)}
-            className={styles.deleteButton}
-            type="button"
-          >
-            <DeleteIcon />
-          </button>
+          <td>
+            <button
+              onClick={onDelete.bind(null, astronaut.id)}
+              className={styles.deleteButton}
+              type="button"
+            >
+              <DeleteIcon />
+            </button>
+          </td>
         </tr>
       ))}
     </tbody>
