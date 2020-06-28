@@ -21,6 +21,10 @@
     background-color: #f0f0f0;
 }
 
+.listButton:focus {
+    border: 1px solid #007bff;
+}
+
 .isActive {
     background-color: #007bff;
     color: #fff;

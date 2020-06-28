@@ -33,17 +33,22 @@
 .deleteButton {
     width: 35px;
     height: 35px;
-    padding-top: 4px;
     position: absolute;
     top: 6px;
     right: 10px;
+    padding-top: 4px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 4px;
+    outline: none;
 }
 
 .deleteButton:hover {
     background-color: #f0f0f0;
+}
+
+.deleteButton:focus {
+    border: 1px solid #007bff;
 }
 
 .cell {

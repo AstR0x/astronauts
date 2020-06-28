@@ -33,7 +33,9 @@ export const Form = ({ onAdd }) => {
 
   const isValid = Boolean(name.trim() && date.trim() && days && mission.trim());
 
-  const onAddD = () => {
+  const handleSubmit = event => {
+    event.preventDefault();
+
     const id = Date.now();
     const timestamps = new Date(date).getTime() / MILLISECONDS_IN_SECOND;
 
@@ -53,7 +55,7 @@ export const Form = ({ onAdd }) => {
     { value: mission, type: 'text', handler: onChangeMission, placeholder: 'Название миссии' }];
 
   return (
-    <form onSubmit={onAddD} className={styles.form}>
+    <form onSubmit={handleSubmit} className={styles.form}>
       {inputs.map(({ value, type, handler, placeholder }) => (
         <input
           type={type}

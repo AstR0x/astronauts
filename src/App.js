@@ -30,10 +30,10 @@ function App() {
     setFilter(event.target.value);
   };
 
-  const onSort = column => {
+  const onSort = field => {
     const direction = sortingDirection === 'asc' ? 'desc' : 'asc';
 
-    setSortField(column);
+    setSortField(field);
     setSortingDirection(direction);
   };
 
