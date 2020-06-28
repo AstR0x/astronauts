@@ -23,7 +23,7 @@ const fields = [
   },
   {
     name: 'days',
-    ruName: 'Количество полётов',
+    ruName: 'Дни в космосе',
   },
   {
     name: 'mission',
