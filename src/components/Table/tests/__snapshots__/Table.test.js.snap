@@ -28,7 +28,7 @@ exports[`component Table should correct render 1`] = `
         className="cell sortedCell"
         onClick={[Function]}
       >
-        Количество полётов
+        Дни в космосе
          
       </th>
       <th
