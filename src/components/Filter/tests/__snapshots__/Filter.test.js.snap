@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component Filter should correct render 1`] = `
+<input
+  className="input"
+  placeholder="Фильтр"
+  value="Jackson"
+/>
+`;

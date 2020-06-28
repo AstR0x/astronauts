@@ -1,0 +1,176 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component Table should correct render 1`] = `
+<table
+  className="table"
+>
+  <thead
+    className="head"
+  >
+    <tr
+      className="row"
+    >
+      <th
+        className="cell sortedCell"
+        onClick={[Function]}
+      >
+        Имя
+         
+      </th>
+      <th
+        className="cell sortedCell"
+        onClick={[Function]}
+      >
+        Дата полёта
+         
+      </th>
+      <th
+        className="cell sortedCell"
+        onClick={[Function]}
+      >
+        Количество полётов
+         
+      </th>
+      <th
+        className="cell sortedCell"
+        onClick={[Function]}
+      >
+        Название миссии
+         
+      </th>
+      <th
+        className="cell sortedCell"
+        onClick={[Function]}
+      >
+        Повторные полёты
+         
+      </th>
+      <th />
+    </tr>
+  </thead>
+  <tbody
+    className="body"
+  >
+    <tr
+      className="row"
+    >
+      <td
+        className="cell"
+      >
+        Sigmund Jähn
+      </td>
+      <td
+        className="cell"
+      >
+        26.08.1978
+      </td>
+      <td
+        className="cell"
+      >
+        7
+      </td>
+      <td
+        className="cell"
+      >
+        Sojus 31 / Sojus 29
+      </td>
+      <td
+        className="cell"
+      >
+        Нет
+      </td>
+      <td>
+        <button
+          className="deleteButton"
+          onClick={[Function]}
+          type="button"
+        >
+          <svg>
+            delete.svg
+          </svg>
+        </button>
+      </td>
+    </tr>
+    <tr
+      className="row"
+    >
+      <td
+        className="cell"
+      >
+        Ulf Merbold
+      </td>
+      <td
+        className="cell"
+      >
+        28.11.1983
+      </td>
+      <td
+        className="cell"
+      >
+        10
+      </td>
+      <td
+        className="cell"
+      >
+        STS-9
+      </td>
+      <td
+        className="cell"
+      >
+        Да
+      </td>
+      <td>
+        <button
+          className="deleteButton"
+          onClick={[Function]}
+          type="button"
+        >
+          <svg>
+            delete.svg
+          </svg>
+        </button>
+      </td>
+    </tr>
+    <tr
+      className="row"
+    >
+      <td
+        className="cell"
+      >
+        Reinhard Furrer
+      </td>
+      <td
+        className="cell"
+      >
+        30.10.1985
+      </td>
+      <td
+        className="cell"
+      >
+        7
+      </td>
+      <td
+        className="cell"
+      >
+        STS-61-A (D1)
+      </td>
+      <td
+        className="cell"
+      >
+        Нет
+      </td>
+      <td>
+        <button
+          className="deleteButton"
+          onClick={[Function]}
+          type="button"
+        >
+          <svg>
+            delete.svg
+          </svg>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component Form should correct render 1`] = `
+<form
+  className="form"
+  onSubmit={[Function]}
+>
+  <input
+    className="input"
+    onChange={[Function]}
+    placeholder="Имя"
+    required={true}
+    type="text"
+    value=""
+  />
+  <input
+    className="input"
+    onChange={[Function]}
+    placeholder="Дата"
+    required={true}
+    type="date"
+    value=""
+  />
+  <input
+    className="input"
+    onChange={[Function]}
+    placeholder="Количество дней"
+    required={true}
+    type="number"
+    value=""
+  />
+  <input
+    className="input"
+    onChange={[Function]}
+    placeholder="Название миссии"
+    required={true}
+    type="text"
+    value=""
+  />
+  <div
+    className="checkboxContainer"
+  >
+    <label
+      className="checkboxLabel"
+    >
+      Повторные полёты
+    </label>
+    <input
+      checked={false}
+      className="checkbox"
+      onChange={[Function]}
+      type="checkbox"
+      value={false}
+    />
+  </div>
+  <button
+    className="button"
+    disabled={true}
+    type="submit"
+  >
+    Добавить
+  </button>
+</form>
+`;
