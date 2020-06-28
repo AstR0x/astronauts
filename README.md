@@ -21,8 +21,8 @@
  
 Сортировка по всем столбцам таблицы (от большего к меньшему и наоборот).  
 
-###### Демонстрация
+##### Демонстрация
 Посмотреть на приложение можно, перейдя по [ссылке](https://astr0x.github.io/astronauts).
 
-###### Скриншот
+##### Скриншот
 ![screenshot](https://github.com/AstR0x/astr0x.github.io/blob/master/screenshots/astronauts.png)
