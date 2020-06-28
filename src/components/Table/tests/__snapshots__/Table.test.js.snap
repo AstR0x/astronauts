@@ -62,7 +62,7 @@ exports[`component Table should correct render 1`] = `
       <td
         className="cell"
       >
-        26.08.1978
+        25.08.1978
       </td>
       <td
         className="cell"
@@ -102,7 +102,7 @@ exports[`component Table should correct render 1`] = `
       <td
         className="cell"
       >
-        28.11.1983
+        27.11.1983
       </td>
       <td
         className="cell"
@@ -142,7 +142,7 @@ exports[`component Table should correct render 1`] = `
       <td
         className="cell"
       >
-        30.10.1985
+        29.10.1985
       </td>
       <td
         className="cell"
