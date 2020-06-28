@@ -11,29 +11,15 @@ export const Form = ({ onAdd }) => {
   const [mission, setMission] = useState('');
   const [isMultiple, setIsMultiple] = useState(false);
 
-  const onChangeName = event => {
-    setName(event.target.value);
-  };
-
-  const onChangeDate = event => {
-    setDate(event.target.value);
-  };
-
-  const onChangeDays = event => {
-    setDays(event.target.value);
-  };
-
-  const onChangeMission = event => {
-    setMission(event.target.value);
-  };
-
-  const onChangeIsMultiple = () => {
-    setIsMultiple(!isMultiple);
-  };
+  const onChangeName = event => setName(event.target.value);
+  const onChangeDate = event => setDate(event.target.value);
+  const onChangeDays = event => setDays(event.target.value);
+  const onChangeMission = event => setMission(event.target.value);
+  const onChangeIsMultiple = () => setIsMultiple(!isMultiple);
 
   const isValid = Boolean(name.trim() && date.trim() && days && mission.trim());
 
-  const handleSubmit = event => {
+  const onSubmitForm = event => {
     event.preventDefault();
 
     const id = Date.now();
@@ -51,11 +37,11 @@ export const Form = ({ onAdd }) => {
   const inputs = [
     { value: name, type: 'text', handler: onChangeName, placeholder: 'Имя' },
     { value: date, type: 'date', handler: onChangeDate, placeholder: 'Дата' },
-    { value: days, type: 'number', handler: onChangeDays, placeholder: 'Количество дней' },
+    { value: days, type: 'number', handler: onChangeDays, placeholder: 'Дней в космосе' },
     { value: mission, type: 'text', handler: onChangeMission, placeholder: 'Название миссии' }];
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
+    <form onSubmit={onSubmitForm} className={styles.form}>
       {inputs.map(({ value, type, handler, placeholder }) => (
         <input
           type={type}

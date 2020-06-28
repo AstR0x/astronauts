@@ -54,11 +54,13 @@ function App() {
       <Form onAdd={onAdd} />
       <Filter onFilter={onFilter} />
       <Table
+        currentPage={currentPage}
         onSort={onSort}
         onDelete={onDelete}
         astronauts={displayedAstronauts}
         sortField={sortField}
         sortDirection={sortingDirection}
+        setCurrentPage={setCurrentPage}
       />
       {totalPages > 1 && (
         <Pagination

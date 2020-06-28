@@ -24,7 +24,7 @@ exports[`component Form should correct render 1`] = `
   <input
     className="input"
     onChange={[Function]}
-    placeholder="Количество дней"
+    placeholder="Дней в космосе"
     required={true}
     type="number"
     value=""

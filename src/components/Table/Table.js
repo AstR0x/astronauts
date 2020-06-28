@@ -34,45 +34,63 @@ const fields = [
     ruName: 'Повторные полёты',
   }];
 
-const Table = ({ astronauts, onDelete, onSort, sortField, sortDirection }) => (
-  <table className={styles.table}>
-    <thead className={styles.head}>
-      <tr className={styles.row}>
-        {fields.map(field => (
-          <th
-            onClick={onSort.bind(null, field.name)}
-            className={cellClasses}
-            key={field.name}
-          >
-            {field.ruName} {sortField === field.name && (
-            <span>{symbols[sortDirection]}</span>
-            )}
-          </th>
-        ))}
-        <th></th>
-      </tr>
-    </thead>
-    <tbody className={styles.body}>
-      {astronauts.map(astronaut => (
-        <tr className={styles.row} key={astronaut.id}>
-          <td className={styles.cell}>{astronaut.name}</td>
-          <td className={styles.cell}>{formatDate(astronaut.date)}</td>
-          <td className={styles.cell}>{astronaut.days}</td>
-          <td className={styles.cell}>{astronaut.mission}</td>
-          <td className={styles.cell}>{astronaut.isMultiple ? 'Да' : 'Нет'}</td>
-          <td>
-            <button
-              onClick={onDelete.bind(null, astronaut.id)}
-              className={styles.deleteButton}
-              type="button"
+const Table = ({
+  astronauts,
+  onDelete,
+  onSort,
+  sortField,
+  sortDirection,
+  setCurrentPage,
+  currentPage,
+}) => {
+  const onDeleteWrapper = id => {
+    if (astronauts.length === 1 && currentPage !== 1) {
+      setCurrentPage(currentPage - 1);
+    }
+
+    onDelete(id);
+  };
+
+  return (
+    <table className={styles.table}>
+      <thead className={styles.head}>
+        <tr className={styles.row}>
+          {fields.map(field => (
+            <th
+              onClick={onSort.bind(null, field.name)}
+              className={cellClasses}
+              key={field.name}
             >
-              <DeleteIcon />
-            </button>
-          </td>
+              {field.ruName} {sortField === field.name && (
+              <span>{symbols[sortDirection]}</span>
+              )}
+            </th>
+          ))}
+          <th />
         </tr>
-      ))}
-    </tbody>
-  </table>
-);
+      </thead>
+      <tbody className={styles.body}>
+        {astronauts.map(astronaut => (
+          <tr className={styles.row} key={astronaut.id}>
+            <td className={styles.cell}>{astronaut.name}</td>
+            <td className={styles.cell}>{formatDate(astronaut.date)}</td>
+            <td className={styles.cell}>{astronaut.days}</td>
+            <td className={styles.cell}>{astronaut.mission}</td>
+            <td className={styles.cell}>{astronaut.isMultiple ? 'Да' : 'Нет'}</td>
+            <td>
+              <button
+                onClick={onDeleteWrapper.bind(null, astronaut.id)}
+                className={styles.deleteButton}
+                type="button"
+              >
+                <DeleteIcon />
+              </button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+};
 
 export { Table };
