@@ -59,3 +59,13 @@
 .body {
     display: block;
 }
+
+@media (max-width: 414px) {
+    .row {
+        padding: 0 4px;
+    }
+
+    .deleteButton {
+        display: none;
+    }
+}

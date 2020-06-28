@@ -3,6 +3,7 @@
 * {
   font-family: Roboto, sans-serif;
   box-sizing: border-box;
+  margin: 0;
   padding: 0;
 }
 
@@ -10,4 +11,26 @@
   width: 70%;
   text-align: center;
   margin: 0 auto;
+}
+
+@media (max-width: 1440px) {
+  .app {
+    width: 90%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .app {
+    width: 95%;
+  }
+}
+
+@media (max-width: 414px) {
+  * {
+    font-size: 12px;
+  }
+
+  .app {
+    width: 100%;
+  }
 }

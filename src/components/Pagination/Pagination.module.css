@@ -1,6 +1,7 @@
 .list {
     display: flex;
     list-style: none;
+    margin-top: 30px;
 }
 
 .listButton {
@@ -33,8 +34,3 @@
 .isActive:hover {
     background-color: #007bff;
 }
-
-
-
-
-
