@@ -41,7 +41,7 @@ function App() {
   const onDelete = id => setAstronauts(astronauts.filter(astronaut => astronaut.id !== id));
   const onChangePage = pageNumber => setCurrentPage(pageNumber);
 
-  const filteredAstronauts = filter ? filterAstronauts(filter, astronauts) : astronauts;
+  const filteredAstronauts = filter ? filterAstronauts(astronauts, filter) : astronauts;
   const subarrays = splitIntoSubarrays(filteredAstronauts, perPage);
   const currentSubarray = subarrays[currentPage - 1];
   const displayedAstronauts = subarrays.length
