@@ -10,6 +10,9 @@
 
 @media (max-width: 414px) {
   .input {
-    width: 94%;
+    width: 100%;
+    padding-left: 15px;
+    border: none;
+    border-bottom: 1px solid #ccc;
   }
 }

@@ -18,7 +18,7 @@ function App() {
   const [sortingDirection, setSortingDirection] = useState('asc');
   const [filter, setFilter] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const [perPage] = useState(5);
+  const [perPage] = useState(8);
 
   useEffect(() => {
     setAstronauts(data);
