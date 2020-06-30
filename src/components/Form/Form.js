@@ -4,53 +4,62 @@ import { MILLISECONDS_IN_SECOND } from '../../constants';
 
 import styles from './Form.module.css';
 
+const initialAstronaut = {
+  name: '',
+  date: '',
+  days: '',
+  mission: '',
+};
+
 export const Form = ({ onAdd }) => {
-  const [name, setName] = useState('');
-  const [date, setDate] = useState('');
-  const [days, setDays] = useState('');
-  const [mission, setMission] = useState('');
+  const [astronaut, setAstronaut] = useState(initialAstronaut);
   const [isMultiple, setIsMultiple] = useState(false);
 
-  const onChangeName = event => setName(event.target.value);
-  const onChangeDate = event => setDate(event.target.value);
-  const onChangeDays = event => setDays(event.target.value);
-  const onChangeMission = event => setMission(event.target.value);
-  const onChangeIsMultiple = () => setIsMultiple(!isMultiple);
+  const onChangeIsMultiple = event => setIsMultiple(event.target.checked);
+  const onChangeAstronaut = event => setAstronaut({ ...astronaut, [event.target.name]: event.target.value });
 
-  const isValid = Boolean(name.trim() && date.trim() && days && mission.trim());
+  const isValid = astronaut.name.trim()
+    && astronaut.date
+    && astronaut.days
+    && astronaut.mission.trim();
 
   const onSubmitForm = event => {
     event.preventDefault();
-
+    const { name, date, days, mission } = astronaut;
+    const timestamp = new Date(date).getTime() / MILLISECONDS_IN_SECOND;
     const id = Date.now();
-    const timestamps = new Date(date).getTime() / MILLISECONDS_IN_SECOND;
 
-    onAdd({ id, name, date: timestamps, days: +days, mission, isMultiple });
+    onAdd({
+      id,
+      name,
+      date: timestamp,
+      days: parseInt(days, 10),
+      mission,
+      isMultiple,
+    });
 
-    setName('');
-    setDate('');
-    setDays('');
-    setMission('');
+    setAstronaut(initialAstronaut);
     setIsMultiple(false);
   };
 
   const inputs = [
-    { value: name, type: 'text', handler: onChangeName, placeholder: 'Имя' },
-    { value: date, type: 'date', handler: onChangeDate, placeholder: 'Дата' },
-    { value: days, type: 'number', handler: onChangeDays, placeholder: 'Дней в космосе' },
-    { value: mission, type: 'text', handler: onChangeMission, placeholder: 'Название миссии' }];
+    { value: astronaut.name, name: 'name', type: 'text', placeholder: 'Имя' },
+    { value: astronaut.date, name: 'date', type: 'date', placeholder: 'Дата' },
+    { value: astronaut.days, name: 'days', type: 'number', placeholder: 'Дней в космосе' },
+    { value: astronaut.mission, name: 'mission', type: 'text', placeholder: 'Название миссии' }];
 
   return (
     <form onSubmit={onSubmitForm} className={styles.form}>
-      {inputs.map(({ value, type, handler, placeholder }) => (
+      {inputs.map(({ value, type, placeholder, name }) => (
         <input
           type={type}
           value={value}
-          onChange={handler}
+          name={name}
+          onChange={onChangeAstronaut}
           className={styles.input}
           placeholder={placeholder}
-          required
           key={placeholder}
+          required
         />
       ))}
       <div className={styles.checkboxContainer}>
@@ -59,7 +68,6 @@ export const Form = ({ onAdd }) => {
         </label>
         <input
           checked={isMultiple}
-          value={isMultiple}
           type="checkbox"
           onChange={onChangeIsMultiple}
           className={styles.checkbox}
