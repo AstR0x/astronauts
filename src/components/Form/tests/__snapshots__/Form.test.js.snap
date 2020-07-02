@@ -7,6 +7,7 @@ exports[`component Form should correct render 1`] = `
 >
   <input
     className="input"
+    name="name"
     onChange={[Function]}
     placeholder="Имя"
     required={true}
@@ -15,6 +16,7 @@ exports[`component Form should correct render 1`] = `
   />
   <input
     className="input"
+    name="date"
     onChange={[Function]}
     placeholder="Дата"
     required={true}
@@ -23,6 +25,7 @@ exports[`component Form should correct render 1`] = `
   />
   <input
     className="input"
+    name="days"
     onChange={[Function]}
     placeholder="Дней в космосе"
     required={true}
@@ -31,6 +34,7 @@ exports[`component Form should correct render 1`] = `
   />
   <input
     className="input"
+    name="mission"
     onChange={[Function]}
     placeholder="Название миссии"
     required={true}
@@ -50,7 +54,6 @@ exports[`component Form should correct render 1`] = `
       className="checkbox"
       onChange={[Function]}
       type="checkbox"
-      value={false}
     />
   </div>
   <button
